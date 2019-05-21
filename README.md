@@ -3,6 +3,8 @@
 # python-matlab-data-signal
 
 Python Matlab Data Signal Processing with Scipy.
+default value x = 15 03 99 and n = 0 1 2
+you can custome the value with input `dspolnes`
 
 ## Requirements
 
