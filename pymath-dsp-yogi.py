@@ -1,7 +1,21 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 '''
+Symbol sinyal diskrit sampling ke n adalah:
+Input = x(n)
+Proses = x(n)
+Output = x(n)
 
+Untuk:
+x[0], nilai 0 dalam kurung siku menyatakan sample ke-0,
+x[1], nilai 1 dalam kurung siku menyatakan sample ke-1.
+
+x[n-1] menyatakan sinyal sampel ke n digeser ke kanan sejauh 1
+sampel, dan x[n-2] menyatakan sinyal sampel ke n digeser ke
+kanan sejauh 2 sampel.
+
+x[n+1] menyatakan sinyal diskrit digeser ke kiri sejauh 1, x[n+2]
+menyatakan sinyal diskrit digeser ke kiri sejauh 2 sample.
 '''
 __author__ = "Yogi Arif Widodo (point_bug)"
 __copyright__ = "Copyright 2019, Bugs_Bunny Team | Dsp Tools"
@@ -15,6 +29,7 @@ __info__ = "URL scodeid"
 # math lib
 import matplotlib.pyplot as plt
 import numpy as np
+import scipy.fftpack
 import math
 # end of math lib
 import os
@@ -25,6 +40,10 @@ from lib.colors import colors as c
 from pyfiglet import figlet_format
 import string
 
+# default
+x = 15, 3, 99
+n = 0, 1, 2
+
 
 def hr_yogi():
     pyogclr.print_info(figlet_format('____________'))
@@ -32,8 +51,7 @@ def hr_yogi():
 
 def banner():
     hr_yogi()
-    print(
-        '. DEFAULT VALUE X = ', x, ' AND N = ', n)
+    pyogclr.print_fail('. THIS PROGRAM HAS DEFAULT VALUE')
     pyogclr.print_info('.  YOU CAN CUSTOMIZE with [*] CHOOSE : dspolnes')
     hr_yogi()
     pyogclr.print_warn(
@@ -42,6 +60,9 @@ def banner():
     pyogclr.print_warn(
         'NAME: Yogi Arif Widodo \t\t NIM: 17 615 006 \t CLASS: TI(4A)')
     hr_yogi()
+
+
+def bannerProgram():
     pyogclr.print_fail('.\n. \t\t\t\t MENU PROGRAM')
     pyogclr.print_warn('.\t\t\t_________________________________')
     pyogclr.print_pass('. \tx(n) dalam runtun diskret dalam bentuk notasi')
@@ -64,14 +85,32 @@ def banner():
     ioMenu = input('.\n. \t\t\t [*].Choose : ')
     if ioMenu == 'dspolnes':
         ioGrafis()
+    elif ioMenu == '1':
+        os.system('cls')
+        os.system('clear')
+        banner()
+        print('\n\n')
+        pyogclr.print_pass('            THIS A TABULAR FORM :')
+        print('\t\t\t x(n) = {', x[0], x[1], x[2], n[0], n[1], n[2], '}')
+        yogiwhatdo = input('\nfor try again other program [y/n] for exit : ')
+        if yogiwhatdo == 'y':
+            start()
+        else:
+            print("\n[!] By ...:")
+            sys.exit(0)
+
     elif ioMenu == '3':
         yoGrafis()
+    elif ioMenu == '8':
+        yoFourier()
     else:
         pyogclr.print_bold('still development choose other menu')
 
 
+# begining start program
 def start():
-    banner()
+    banner()  # banner copyright by yogithesymbian
+    bannerProgram()  # menu program dsp
 
 
 def grafis(n, x):
@@ -92,15 +131,31 @@ def grafis(n, x):
     plt.show()
 
 
-# default
-x = 15, 3, 99
-n = 0, 1, 2
-
-
 def yoGrafis():
     pyogclr.print_pass('opening figure . . .')
 
     grafis(n, x)
+
+
+def yoFourier():
+    w1 = 100
+    w2 = 150  # frequency asli
+    w3 = 300  # frequency asli
+    w4 = 400  # frequency asli
+    N = 1000
+    T = 1.0/1000
+    t = np.linspace(0, N*T, N)
+    y = 1*(np.sin(w1*2*np.pi*t)+np.cos(w2*2*np.pi*t) +
+           np.sin(w3*2*np.pi*t)+np.cos(w4*2*np.pi*t))
+    yf = scipy.fftpack.fft(y)
+    xf = np.linspace(0.0, 1.0/(2.0*T), N/2)
+    plt.subplot(211)
+    plt.plot(t, y)
+    plt.title('Signal')
+    plt.subplot(212)
+    plt.plot(xf, 2.0/N * np.abs(yf[:N//2]))
+    plt.title('Frekuensi')
+    plt.show()
 
 
 def ioGrafis():
@@ -123,5 +178,6 @@ if __name__ == '__main__':
     try:
         start()
     except KeyboardInterrupt as err:
-        print("\n[!] By ...:")
+        print(
+            "\n[!] By ...: thanks for use my code (c) 2019 github.com/yogithesymbian")
         sys.exit(0)
