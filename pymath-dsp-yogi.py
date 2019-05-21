@@ -67,7 +67,7 @@ def banner():
     elif ioMenu == '3':
         yoGrafis()
     else:
-        pyogclr.print_bold('asdasdasd')
+        pyogclr.print_bold('still development choose other menu')
 
 
 def start():
