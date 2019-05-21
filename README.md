@@ -38,6 +38,10 @@ cd python-matlab-data-signal
 python3 pymath-dsp-yogi.py
 ```
 
+## grafis a part of menu
+
+![DSP Screen1](<https://github.com/yogithesymbian/python-matlab-data-signal/blob/master/screenshot/grafis-x(n).png>)
+
 ## Disclaimer
 
 - Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research.
