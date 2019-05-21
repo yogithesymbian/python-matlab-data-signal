@@ -3,14 +3,14 @@
 '''
 
 '''
-__author__ = "Yogi Arif Widodo (S0ld1er)"
+__author__ = "Yogi Arif Widodo (point_bug)"
 __copyright__ = "Copyright 2019, Bugs_Bunny Team | Dsp Tools"
 __version__ = "0.1"
 __email__ = "yogirenbox33@gmail.com"
 __status__ = "Development"
-__codename__ = 'scode-dsp'
-__source__ = "https://github.com/yogithesymbian/scode-dsp"
-__info__ = "URL ScodeDSP"
+__codename__ = 'python-matlab-data-signal'
+__source__ = "https://github.com/yogithesymbian/python-matlab-data-signal"
+__info__ = "URL scodeid"
 
 # math lib
 import matplotlib.pyplot as plt
