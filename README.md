@@ -1,6 +1,8 @@
+![DSP Screen](https://github.com/yogithesymbian/python-matlab-data-signal/blob/master/screenshot/dsp-screen-yogi.png)
+
 # python-matlab-data-signal
 
-Python Matlab Data Signal Processing with Scipy
+Python Matlab Data Signal Processing with Scipy.
 
 ## Requirements
 
