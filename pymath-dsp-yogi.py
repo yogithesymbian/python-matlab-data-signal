@@ -42,8 +42,8 @@ from pyfiglet import figlet_format
 import string
 
 # default
-x = 15, 3, 99
-n = 0, 1, 2
+x = 1, 5, 0, 3, 9, 9
+n = 0, 1, 2, 3, 4, 5
 
 
 def hr_yogi():
@@ -56,7 +56,7 @@ def banner():
     pyogclr.print_info('.  YOU CAN CUSTOMIZE with [*] CHOOSE : dspolnes')
     hr_yogi()
     pyogclr.print_warn(
-        'Birt Of Date : 15 march 1999 \t x = { 15 03 99 } \t n = { 0 1 2 }')
+        'Birt Of Date : 15 march 1999 \t x = { 1 5 0 3 9 9 } \t n = { 0 1 2 3 4 5}')
     pyogclr.print_info(figlet_format('        DSP-Mr-Day     '))
     pyogclr.print_warn(
         'NAME: Yogi Arif Widodo \t\t NIM: 17 615 006 \t CLASS: TI(4A)')
@@ -103,6 +103,10 @@ def bannerProgram():
         yogiClear()
         banner()
         differentialEquation()
+    elif ioMenu == '5':
+        yogiClear()
+        banner()
+        nomorLima()
     elif ioMenu == '8':
         yoFourier()
     else:
@@ -138,14 +142,14 @@ def model(y, t):
 def bentukFxn():
     print('\n\n')
     pyogclr.print_pass('            THIS A BENTUK FUNGSI x(n) :')
-    print('\t\t\t x(n) = { x | ', x[0], ' <= x <= ', x[2], ', x bil. bulat }')
+    print('\t\t\t x(n) = { n | ', n[0], ' <= n <= ', n[5], ', n bil. ganjil }')
     yogiAsk()
 
 
 def tabularForm():
     print('\n\n')
     pyogclr.print_pass('            THIS A TABULAR FORM :')
-    print('\t\t\t x(n) = {', x[0], x[1], x[2], n[0], n[1], n[2], '}')
+    print('\t\t\t x(n) = {', x[0], x[1], x[2], x[3], x[4], x[5], '}')
     yogiAsk()
 
 
@@ -155,14 +159,14 @@ def grafis(n, x):
     # setting property of baseline with color red and linewidth 2
     plt.setp(baseline, color='r', linewidth=2)
     xn = 'grafis x(n) = { '
-    xn1 = x + n
+    xn1 = x
     xn2 = ' }'
     xnh = xn, xn1, xn2
 
     plt.title(xnh)
     plt.grid(True)
     plt.ylabel('x(n)')
-    plt.xlabel('n = [0:2]')
+    plt.xlabel('n = [0:5]')
     # plt.yscale('linear')
     plt.show()
     yogiAsk()
