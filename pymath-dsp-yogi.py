@@ -29,7 +29,8 @@ __info__ = "URL scodeid"
 # math lib
 import matplotlib.pyplot as plt
 import numpy as np
-import scipy.fftpack
+import scipy.fftpack  # for fourier lib
+import scipy.integrate
 import math
 # end of math lib
 import os
@@ -76,31 +77,32 @@ def bannerProgram():
     pyogclr.print_fail('. \t\t\t 7.  x(n)-X(n-3)\n')
     pyogclr.print_pass('. \tCarilah x(n)')
     pyogclr.print_fail('. \t\t\t 8. Transformasi Fourier ')
-    pyogclr.print_fail('. \t\t\t 8. Transformasi Z ')
+    pyogclr.print_fail('. \t\t\t 9. Transformasi Z ')
     pyogclr.print_fail('. \t\t\t N. Exit')
 
     # choose = pyogclr.print_warn('. \t\t\t [*].Choose : ',)
     # inputString = input()
 
     ioMenu = input('.\n. \t\t\t [*].Choose : ')
+    '''
+        Action Menu Program
+    '''
     if ioMenu == 'dspolnes':
         ioGrafis()
     elif ioMenu == '1':
-        os.system('cls')
-        os.system('clear')
+        yogiClear()
         banner()
-        print('\n\n')
-        pyogclr.print_pass('            THIS A TABULAR FORM :')
-        print('\t\t\t x(n) = {', x[0], x[1], x[2], n[0], n[1], n[2], '}')
-        yogiwhatdo = input('\nfor try again other program [y/n] for exit : ')
-        if yogiwhatdo == 'y':
-            start()
-        else:
-            print("\n[!] By ...:")
-            sys.exit(0)
-
+        tabularForm()
+    elif ioMenu == '2':
+        yogiClear()
+        banner()
+        bentukFxn()
     elif ioMenu == '3':
         yoGrafis()
+    elif ioMenu == '4':
+        yogiClear()
+        banner()
+        differentialEquation()
     elif ioMenu == '8':
         yoFourier()
     else:
@@ -111,6 +113,40 @@ def bannerProgram():
 def start():
     banner()  # banner copyright by yogithesymbian
     bannerProgram()  # menu program dsp
+
+
+def yogiClear():
+    os.system('cls')
+    os.system('clear')
+
+
+# initial condition
+y0 = 5
+
+# time points
+t = np.linspace(0, 20)
+
+# function that return dy/dt
+
+
+def model(y, t):
+    k = 0.3
+    dydt = -k * y
+    return dydt
+
+
+def bentukFxn():
+    print('\n\n')
+    pyogclr.print_pass('            THIS A BENTUK FUNGSI x(n) :')
+    print('\t\t\t x(n) = { x | ', x[0], ' <= x <= ', x[2], ', x bil. bulat }')
+    yogiAsk()
+
+
+def tabularForm():
+    print('\n\n')
+    pyogclr.print_pass('            THIS A TABULAR FORM :')
+    print('\t\t\t x(n) = {', x[0], x[1], x[2], n[0], n[1], n[2], '}')
+    yogiAsk()
 
 
 def grafis(n, x):
@@ -129,12 +165,23 @@ def grafis(n, x):
     plt.xlabel('n = [0:2]')
     # plt.yscale('linear')
     plt.show()
+    yogiAsk()
 
 
 def yoGrafis():
     pyogclr.print_pass('opening figure . . .')
 
     grafis(n, x)
+
+
+def yogiAsk():
+    yogiwhatdo = input('\nfor try again other program [y/n] for exit : ')
+    if yogiwhatdo == 'y':
+        start()
+    else:
+        print(
+            "\n[!] By ...: thanks for use my code (c) 2019 github.com/yogithesymbian")
+        sys.exit(0)
 
 
 def yoFourier():
