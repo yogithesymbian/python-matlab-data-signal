@@ -40,13 +40,17 @@ python3 pymath-dsp-yogi.py
 
 ## screenshot
 
-### grafis 1c
+### - grafis 1c
 
 ![DSP Screen1](<https://github.com/yogithesymbian/python-matlab-data-signal/blob/master/screenshot/grafis-x(n).png>)
 
-### bentuk -x(n-3)
+### - bentuk -x(n-3)
 
 ![DSP Screen1](https://raw.githubusercontent.com/yogithesymbian/python-matlab-data-signal/master/screenshot/jikaxn.png)
+
+### - Transformasi Fourier ( still development )
+
+### - Transformasi Z ( still development )
 
 ## Disclaimer
 
