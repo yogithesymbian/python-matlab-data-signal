@@ -292,7 +292,7 @@ def grafis(n, x):
 
 
 def yoGrafis():
-    pyogclr.print_pass('opening figure . . .')
+    pyogclr.print_pass('opening figure grafis 1c . . .')
     print('From : x = ', x)
     print('       n = ', n)
     grafis(n, x)
