@@ -78,6 +78,10 @@ def bannerProgram():
     pyogclr.print_pass('. \tCarilah x(n)')
     pyogclr.print_fail('. \t\t\t 8. Transformasi Fourier ')
     pyogclr.print_fail('. \t\t\t 9. Transformasi Z ')
+    pyogclr.print_pass('. \tOther')
+    pyogclr.print_fail(
+        '. \t\t\t 10. mencari y(n) dari hasil konvolusi choose for more describe bro ')
+    pyogclr.print_fail('. \t\t\t 11. Struktur Filter dalam bentuk H(Z) ')
     pyogclr.print_fail('. \t\t\t N. Exit')
 
     # choose = pyogclr.print_warn('. \t\t\t [*].Choose : ',)
