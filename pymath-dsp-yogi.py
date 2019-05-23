@@ -329,6 +329,10 @@ def yoFourier():
     plt.show()
 
 
+def yoTransz():
+    pyogclr.print_bold('still development choose other menu')
+
+
 def ioGrafis():
     print("panjang isi variable x dan n adalah 6 / arr[6] ")
     print("Masukan Nilai x : ")
