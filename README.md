@@ -38,9 +38,15 @@ cd python-matlab-data-signal
 python3 pymath-dsp-yogi.py
 ```
 
-## grafis a part of menu
+## screenshot
+
+### grafis 1c
 
 ![DSP Screen1](<https://github.com/yogithesymbian/python-matlab-data-signal/blob/master/screenshot/grafis-x(n).png>)
+
+### bentuk -x(n-3)
+
+![DSP Screen1](https://raw.githubusercontent.com/yogithesymbian/python-matlab-data-signal/master/screenshot/jikaxn.png)
 
 ## Disclaimer
 
