@@ -54,6 +54,8 @@ def banner():
     hr_yogi()
     pyogclr.print_fail('. THIS PROGRAM HAS DEFAULT VALUE')
     pyogclr.print_info('.  YOU CAN CUSTOMIZE with [*] CHOOSE : dspolnes')
+    pyogclr.print_info(
+        '.  YOU CAN RESET CUSTOMIZE TO DEFAULT with [*] CHOOSE : reset')
     hr_yogi()
     pyogclr.print_warn(
         'Birt Of Date : 15 march 1999 \t x = { 1 5 0 3 9 9 } \t n = { 0 1 2 3 4 5}')
@@ -70,7 +72,7 @@ def bannerProgram():
     pyogclr.print_fail('. \t\t\t 1. Bentuk Tabular Form')
     pyogclr.print_fail('. \t\t\t 2. fungsi x(n)')
     pyogclr.print_fail('. \t\t\t 3. Grafis')
-    pyogclr.print_fail('. \t\t\t 4. Persamaan Beda\n')
+    pyogclr.print_fail('. \t\t\t 4. Persamaan Beda | Differential Equation\n')
     pyogclr.print_pass('.\n. \tBagaimana bentuk X(n) Baru Jika')
     pyogclr.print_fail('. \t\t\t 5. -x(n-3)')
     pyogclr.print_fail('. \t\t\t 6. -3x(n)')
@@ -84,6 +86,8 @@ def bannerProgram():
     pyogclr.print_fail('. \t\t\t 11. Struktur Filter dalam bentuk H(Z) ')
     pyogclr.print_fail('. \t\t\t N. Exit')
 
+
+def ioMenuProg():
     # choose = pyogclr.print_warn('. \t\t\t [*].Choose : ',)
     # inputString = input()
 
@@ -93,6 +97,8 @@ def bannerProgram():
     '''
     if ioMenu == 'dspolnes':
         ioGrafis()
+    elif ioMenu == 'reset':
+        start()
     elif ioMenu == '1':
         # clearscreen
         yogiClear()
@@ -108,6 +114,7 @@ def bannerProgram():
         yogiClear()
         banner()
         yoGrafis()
+        yogiAsk()
     elif ioMenu == '4':
         yogiClear()
         banner()
@@ -116,14 +123,17 @@ def bannerProgram():
         yogiClear()
         banner()
         nomorLima()
+        yogiAsk()
     elif ioMenu == '6':
         yogiClear()
         banner()
         nomorEnam()
+        yogiAsk()
     elif ioMenu == '7':
         yogiClear()
         banner()
         nomorTujuh()
+        yogiAsk()
     elif ioMenu == '8':
         yogiClear()
         banner()
@@ -143,6 +153,7 @@ def bannerProgram():
 def start():
     banner()  # banner copyright by yogithesymbian
     bannerProgram()  # menu program dsp
+    ioMenuProg()
 
 
 def yogiClear():
@@ -152,6 +163,31 @@ def yogiClear():
 
 def nomorLima():
     pyogclr.print_pass('            THIS A BENTUK -x(n-3) :')
+    print('From : x = ', x)
+    print('       n = ', n)
+    pyogclr.print_pass('opening figure . . .')
+    x1 = -x[0]
+    x2 = -x[1]
+    x3 = -x[2]
+    x4 = -x[3]
+    x5 = -x[4]
+    x6 = -x[5]
+    xberubah = x1, x2, x3, x4, x5, x6
+    n1 = n[0] - 3
+    n2 = n[1] - 3
+    n3 = n[2] - 3
+    n4 = n[3] - 3
+    n5 = n[4] - 3
+    n6 = n[5] - 3
+    nberubah = n1, n2, n3, n4, n5, n6
+    # xberubah = -x
+    # nberubah = n - 3
+    grafis(nberubah, xberubah)
+
+
+def nomorLimaCustome(x, n):
+    pyogclr.print_pass(
+        '            THIS A BENTUK -x(n-3) : { with custome value }')
     print('From : x = ', x)
     print('       n = ', n)
     pyogclr.print_pass('opening figure . . .')
@@ -191,9 +227,50 @@ def nomorEnam():
     # nberubah = n - 3
     grafis(n, xberubah)
 
+def nomorEnamCustome(x,n):
+    pyogclr.print_pass('            THIS A BENTUK -3x(n) : { with custome value }')
+    print('From : x = ', x)
+    print('       n = ', n)
+    pyogclr.print_pass('opening figure . . .')
+    minusnya = -3
+    x1 = minusnya * x[0]
+    x2 = minusnya * x[1]
+    x3 = minusnya * x[2]
+    x4 = minusnya * x[3]
+    x5 = minusnya * x[4]
+    x6 = minusnya * x[5]
+    xberubah = x1, x2, x3, x4, x5, x6
+    # xberubah = -x
+    # nberubah = n - 3
+    grafis(n, xberubah)
+
 
 def nomorTujuh():
     pyogclr.print_pass('            THIS A BENTUK x(n)-x(n-3) :')
+    print('From : x = ', x)
+    print('       n = ', n)
+    pyogclr.print_pass('opening figure . . .')
+    x1 = x[0] - x[0]
+    x2 = x[1] - x[1]
+    x3 = x[2] - x[2]
+    x4 = x[3] - x[3]
+    x5 = x[4] - x[4]
+    x6 = x[5] - x[5]
+    xberubah = x1, x2, x3, x4, x5, x6
+    n1 = n[0] - (n[0]-3)
+    n2 = n[1] - (n[1]-3)
+    n3 = n[2] - (n[2]-3)
+    n4 = n[3] - (n[3]-3)
+    n5 = n[4] - (n[4]-3)
+    n6 = n[5] - (n[5]-3)
+    nberubah = n1, n2, n3, n4, n5, n6
+    # xberubah = -x
+    # nberubah = n - 3
+    grafis(nberubah, xberubah)
+
+
+def nomorTujuhCustome(x,n):
+    pyogclr.print_pass('            THIS A BENTUK x(n)-x(n-3) : { with custome value }')
     print('From : x = ', x)
     print('       n = ', n)
     pyogclr.print_pass('opening figure . . .')
@@ -254,12 +331,52 @@ def differentialEquation():
     yogiAsk()
 
 
+def differentialEquationCustome(x, n):
+    print('\n ')
+    print('model: Function name that returns derivative values at requested y and t values as dydt=model(y, t)')
+    print('y0: Initial conditions of the differential states')
+    print('t: Time points at which the solution should be reported. Additional internal points are often calculated to maintain accuracy of the solution but are not reported.')
+    pyogclr.print_pass('opening figure . . .')
+    print('From : x = ', x)
+    print('       n = ', n)
+    # initial condition
+    # for x(n) = { 1 5 0 3 9 9}
+    y0 = x
+
+    # time points
+    # arr[0:5]
+    t = np.linspace(n[0], n[5])
+
+    # solve ODE
+    y = odeint(model, y0, t)
+
+    # plot results
+    plt.plot(t, y)
+
+    plt.title('Differential Equation')
+    plt.grid(True)
+    plt.ylabel('y(t)')
+    plt.xlabel('time')
+
+    plt.show()
+    yogiAskCustome(x, n)
+
+
 def bentukFxn():
     print('\n\n')
     pyogclr.print_pass('            THIS A BENTUK FUNGSI x(n) :')
     print('\n\t\t\t x(n) = { n | ', n[0],
-          ' <= n <= ', n[5], ', n bil. ganjil }')
+          ' <= n <= ', n[5], ', n bil. bulat }')
     yogiAsk()
+
+
+def bentukFxnCustome(x, n):
+    print('\n\n')
+    pyogclr.print_pass(
+        '            THIS A BENTUK FUNGSI x(n) :  { with custome value } ')
+    print('\n\t\t\t x(n) = { n | ', n[0],
+          ' <= n <= ', n[5], ', n bil. bulat }')
+    yogiAskCustome(x, n)
 
 
 def tabularForm():
@@ -269,6 +386,19 @@ def tabularForm():
     print('\t\t\t x(n) = { d d m m y y }')
     print('\t\t\t x(n) = {', x[0], x[1], x[2], x[3], x[4], x[5], '}')
     yogiAsk()
+
+
+labelCustome = " { with custome value } "
+
+
+def tabularFormCustome(x, n):
+    print('\n\n')
+    pyogclr.print_pass(
+        '            THIS A TABULAR FORM : { with custome value } ')
+    print('\t\t WHERE ')
+    print('\t\t\t x(n) = { d d m m y y }')
+    print('\t\t\t x(n) = {', x[0], x[1], x[2], x[3], x[4], x[5], '}')
+    yogiAskCustome(x, n)
 
 
 def grafis(n, x):
@@ -292,7 +422,6 @@ def grafis(n, x):
     plt.xlabel(label)
     # plt.yscale('linear')
     plt.show()
-    yogiAsk()
 
 
 def yoGrafis():
@@ -302,10 +431,28 @@ def yoGrafis():
     grafis(n, x)
 
 
+def yoGrafisCustome(x, n):
+    pyogclr.print_pass('opening figure grafis 1c . . .{ with custome mode }')
+    print('From : x = ', x)
+    print('       n = ', n)
+    grafis(n, x)
+
+
 def yogiAsk():
     yogiwhatdo = input('\nfor try again other program [y/n] for exit : ')
     if yogiwhatdo == 'y':
         start()
+        # customizeValue(x, n)
+    else:
+        print(
+            "\n[!] By ...: thanks for use my code (c) 2019 github.com/yogithesymbian")
+        sys.exit(0)
+
+
+def yogiAskCustome(x, n):
+    yogiwhatdo = input('\nfor try again other program [y/n] for exit : ')
+    if yogiwhatdo == 'y':
+        customizeValue(x, n)
     else:
         print(
             "\n[!] By ...: thanks for use my code (c) 2019 github.com/yogithesymbian")
@@ -313,25 +460,73 @@ def yogiAsk():
 
 
 def yoFourier():
-    w1 = 100
-    w2 = 150  # frequency asli
-    w3 = 300  # frequency asli
-    w4 = 400  # frequency asli
+    print('From : n = ', n ,' in n/time/frequency and frequency asli nya')
+    pyogclr.print_pass('opening figure . . .')
+    # jika ->
+    # frequence in n/time/frequency
+    # still development i am confusing only this calculation fourier
+    w1 = n[0]
+    w2 = n[1]  # frequency asli
+    w3 = n[2]  # frequency asli
+    w4 = n[3]  # frequency asli
+
+    w5 = n[4]
+    w6 = n[5]
+
     N = 1000
-    T = 1.0/1000
+    T = 1.0 / 1000
+    # n * t = 1
+    # start 0 stop 1 num 1000
     t = np.linspace(0, N*T, N)
     y = 1*(np.sin(w1*2*np.pi*t)+np.cos(w2*2*np.pi*t) +
-           np.sin(w3*2*np.pi*t)+np.cos(w4*2*np.pi*t))
+           np.sin(w3 * 2 * np.pi * t) + np.cos(w4 * 2 * np.pi * t) +
+           np.sin(w4 * 2 * np.pi * t) + np.cos(w5 * 2 * np.pi * t) +
+           np.cos(w5 * 2 * np.pi * t)
+           )
     yf = scipy.fftpack.fft(y)
     xf = np.linspace(0.0, 1.0/(2.0*T), N/2)
     plt.subplot(211)
     plt.plot(t, y)
-    plt.title('Signal')
+    plt.title('Signal nya')
     plt.subplot(212)
     plt.plot(xf, 2.0/N * np.abs(yf[:N//2]))
-    plt.title('Frekuensi')
+    plt.title('Frekuensi nya')
     plt.show()
 
+
+def yoFourierCustome(x, n):
+    print('From : n = ', n ,' in n/time/frequency and frequency asli nya')
+    pyogclr.print_pass('opening figure . . .')
+    # jika ->
+    # frequence in n/time/frequency
+    # still development i am confusing only this calculation fourier
+    w1 = n[0]
+    w2 = n[1]  # frequency asli
+    w3 = n[2]  # frequency asli
+    w4 = n[3]  # frequency asli
+
+    w5 = n[4]
+    w6 = n[5]
+
+    N = 1000
+    T = 1.0 / 1000
+    # n * t = 1
+    # start 0 stop 1 num 1000
+    t = np.linspace(0, N*T, N)
+    y = 1*(np.sin(w1*2*np.pi*t)+np.cos(w2*2*np.pi*t) +
+           np.sin(w3 * 2 * np.pi * t) + np.cos(w4 * 2 * np.pi * t) +
+           np.sin(w4 * 2 * np.pi * t) + np.cos(w5 * 2 * np.pi * t) +
+           np.cos(w5 * 2 * np.pi * t)
+           )
+    yf = scipy.fftpack.fft(y)
+    xf = np.linspace(0.0, 1.0/(2.0*T), N/2)
+    plt.subplot(211)
+    plt.plot(t, y)
+    plt.title('Signal nya')
+    plt.subplot(212)
+    plt.plot(xf, 2.0/N * np.abs(yf[:N//2]))
+    plt.title('Frekuensi nya')
+    plt.show()
 
 def yoTransz():
     pyogclr.print_bold('still development choose other menu')
@@ -346,12 +541,74 @@ def ioGrafis():
 
     print("Masukan Nilai n : "),
     n = [int(i) for i in input().split()]
+    customizeValue(x, n)
 
-    hr_yogi()
 
-    pyogclr.print_bold('output will execute')
+def customizeValue(x, n):
+    yogiClear()
+    banner()
+    pyogclr.print_bold('output will execute with custome')
     print('\t\tnilai x = ', x)
     print('\t\tNilai n = ', n)
+    pyogclr.print_info(
+        '.  YOU CAN RESET CUSTOMIZE TO DEFAULT with [*] CHOOSE : reset')
+    bannerProgram()
+    ioMenu = input('.\n. \t\t\t [*].Choose : ')
+    '''
+        Action Menu Program with direct value { custome dspolnes }
+    '''
+    if ioMenu == 'dspolnes':
+        ioGrafis()
+    elif ioMenu == 'reset':
+        start()
+    elif ioMenu == '1':
+        # clearscreen
+        yogiClear()
+        # banner
+        banner()
+        # function
+        tabularFormCustome(x, n)
+    elif ioMenu == '2':
+        yogiClear()
+        banner()
+        bentukFxnCustome(x, n)
+    elif ioMenu == '3':
+        yogiClear()
+        banner()
+        yoGrafisCustome(x, n)
+        yogiAskCustome(x, n)
+    elif ioMenu == '4':
+        yogiClear()
+        banner()
+        differentialEquationCustome(x, n)
+    elif ioMenu == '5':
+        yogiClear()
+        banner()
+        nomorLimaCustome(x, n)
+        yogiAskCustome(x, n)
+    elif ioMenu == '6':
+        yogiClear()
+        banner()
+        nomorEnamCustome(x,n)
+        yogiAskCustome(x, n)
+    elif ioMenu == '7':
+        yogiClear()
+        banner()
+        nomorTujuhCustome(x,n)
+        yogiAskCustome(x, n)
+    elif ioMenu == '8':
+        yogiClear()
+        banner()
+        yoFourierCustome(x,n)
+        # y/n [against|exit]
+        yogiAskCustome(x, n)
+    elif ioMenu == '9':
+        yogiClear()
+        banner()
+        yoTransz()
+        yogiAskCustome(x, n)
+    else:
+        pyogclr.print_bold('still development choose other menu')
 
 
 if __name__ == '__main__':
