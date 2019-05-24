@@ -529,6 +529,24 @@ def yoFourierCustome(x, n):
     plt.show()
 
 def yoTransz():
+    pyogclr.print_pass('Z transform doesnt support in python')
+    pyogclr.print_pass('so i write that in matlab only , this link')
+    pyogclr.print_pass('could you download the file ztransform.m')
+    hr_yogi()
+    pyogclr.print_warn(
+        'https://github.com/yogithesymbian/python-matlab-data-signal/blob/master/ztransform.m')
+    hr_yogi()
+    print('@XFAIL\n',
+          'def test_Y13():\n',
+          # Z[H(t - m T)] => z/[z^m (z - 1)]   (H is the Heaviside (unit step) function)                                                 z
+          'raise NotImplementedError("z-transform not supported")\n',
+
+
+          '@XFAIL\n',
+          'def test_Y14():\n',
+          # Z[H(t - m T)] => z/[z^m (z - 1)]   (H is the Heaviside (unit step) function)
+          'raise NotImplementedError("z-transform not supported")\n'
+          )
     pyogclr.print_bold('still development choose other menu')
 
 

@@ -11,3 +11,4 @@ for i = 1:n
     b = b+x(i)*y^(1-i);
 end
 display(b);
+% reference at https://youtu.be/lpBhat9mVho
