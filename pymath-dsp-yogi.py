@@ -145,6 +145,16 @@ def ioMenuProg():
         banner()
         yoTransz()
         yogiAsk()
+    elif ioMenu == '10':
+        yogiClear()
+        banner()
+        pyogclr.print_fail('this function doesnt support on python | still development')
+        yogiAsk()
+    elif ioMenu == '11':
+        yogiClear()
+        banner()
+        pyogclr.print_fail('this function doesnt support on python | still development')
+        yogiAsk()
     else:
         pyogclr.print_bold('still development choose other menu')
 
@@ -460,6 +470,12 @@ def yogiAskCustome(x, n):
 
 
 def yoFourier():
+    pyogclr.print_pass(
+        'ref download here [matlab] :')
+    pyogclr.print_fail(
+        '\t\thttps://github.com/yogithesymbian/python-matlab-data-signal/blob/master/fouriertransform1.m')
+    pyogclr.print_fail(
+        '\t\thttps://github.com/yogithesymbian/python-matlab-data-signal/blob/master/fouriertransform.m')
     print('From : n = ', n ,' in n/time/frequency and frequency asli nya')
     pyogclr.print_pass('opening figure . . .')
     # jika ->
@@ -495,6 +511,12 @@ def yoFourier():
 
 
 def yoFourierCustome(x, n):
+    pyogclr.print_pass(
+        'ref dowload here[matlab]:')
+    pyogclr.print_fail(
+        'https://github.com/yogithesymbian/python-matlab-data-signal/blob/master/fouriertransform1.m')
+    pyogclr.print_fail(
+        'https://github.com/yogithesymbian/python-matlab-data-signal/blob/master/fouriertransform.m')
     print('From : n = ', n ,' in n/time/frequency and frequency asli nya')
     pyogclr.print_pass('opening figure . . .')
     # jika ->
@@ -533,6 +555,7 @@ def yoTransz():
     pyogclr.print_pass('so i write that in matlab only , this link')
     pyogclr.print_pass('could you download the file ztransform.m')
     hr_yogi()
+    print('download here [matlab]')
     pyogclr.print_warn(
         'https://github.com/yogithesymbian/python-matlab-data-signal/blob/master/ztransform.m')
     hr_yogi()
@@ -625,6 +648,16 @@ def customizeValue(x, n):
         banner()
         yoTransz()
         yogiAskCustome(x, n)
+    elif ioMenu == '10':
+        yogiClear()
+        banner()
+        konvolusi()
+        yogiAsk()
+    elif ioMenu == '11':
+        yogiClear()
+        banner()
+        filter()
+        yogiAsk()
     else:
         pyogclr.print_bold('still development choose other menu')
 

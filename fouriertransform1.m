@@ -6,3 +6,5 @@
 syms t w;
 x = -exp(-t)*heaviside(t)+3*dirac(t);
 fw = fourier(x)
+
+// use pretty(fw) | for test the fourier
