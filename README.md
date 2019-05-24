@@ -10,9 +10,12 @@ you can custome the value with input `dspolnes`
 
 package requirements
 
-- python3 `apt-get install python3`
+- python3 `apt-get install python3` | unix | windows https://python.org
 - matplotlib `pip3 install matplotlib`
 - numpy `pip3 install numpy`
+- pyfiglet `pip3 install pyfiglet`
+- scipy `pip3 install scipy`
+- more ref : https://scipy.org
 
 ## Installation
 
