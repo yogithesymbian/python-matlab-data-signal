@@ -651,12 +651,12 @@ def customizeValue(x, n):
     elif ioMenu == '10':
         yogiClear()
         banner()
-        konvolusi()
+        pyogclr.print_fail('this function doesnt support on python | still development')
         yogiAsk()
     elif ioMenu == '11':
         yogiClear()
         banner()
-        filter()
+        pyogclr.print_fail('this function doesnt support on python | still development')
         yogiAsk()
     else:
         pyogclr.print_bold('still development choose other menu')
