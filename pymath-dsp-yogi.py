@@ -32,6 +32,7 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import scipy.fftpack  # for fourier lib
 import math
+from prettytable import PrettyTable
 # end of math lib
 import os
 import sys
@@ -118,7 +119,9 @@ def ioMenuProg():
     elif ioMenu == '4':
         yogiClear()
         banner()
-        differentialEquation()
+        yoGrafisBeda()
+        yogiAsk()
+        # differentialEquation()
     elif ioMenu == '5':
         yogiClear()
         banner()
@@ -148,11 +151,24 @@ def ioMenuProg():
     elif ioMenu == '10':
         yogiClear()
         banner()
+        print('Jika Diketahui sebuah filter H(n) mempunyai persamaan')
+        print('H(n) = 4H(n) - H(n-1_ + 3H(n-3) + 4H(n-4) - 5(Hn-3)+2H(n-6)')
+        print('Carilah Y(n) yang merupakan hasil konvolusi X(n)*H(n) dan konvolusi')
+        print('Circular dari x(n) * H(n)')
+        pyogclr.print_pass(
+            'ref download here [matlab] :')
+        pyogclr.print_warn(
+        '\t\thttps://github.com/yogithesymbian/python-matlab-data-signal/blob/master/fouriertransform1.m')
         pyogclr.print_fail('this function doesnt support on python | still development')
         yogiAsk()
     elif ioMenu == '11':
         yogiClear()
         banner()
+        print('Qustion : Bagaimana Struktur filter dalam bentuk H(Z)')
+        pyogclr.print_pass(
+            'ref download here [matlab] :')
+        pyogclr.print_warn(
+        '\t\thttps://github.com/yogithesymbian/python-matlab-data-signal/blob/master/fouriertransform1.m')
         pyogclr.print_fail('this function doesnt support on python | still development')
         yogiAsk()
     else:
@@ -190,9 +206,12 @@ def nomorLima():
     n5 = n[4] - 3
     n6 = n[5] - 3
     nberubah = n1, n2, n3, n4, n5, n6
+    print('Hasil :x = ', xberubah)
+    print('       n = ', nberubah)
     # xberubah = -x
     # nberubah = n - 3
-    grafis(nberubah, xberubah)
+    ylabel = 'Graphic Jika -x(n-3)'
+    grafis(nberubah, xberubah, ylabel)
 
 
 def nomorLimaCustome(x, n):
@@ -215,9 +234,12 @@ def nomorLimaCustome(x, n):
     n5 = n[4] - 3
     n6 = n[5] - 3
     nberubah = n1, n2, n3, n4, n5, n6
+    print('Hasil :x = ', xberubah)
+    print('       n = ', nberubah)
     # xberubah = -x
     # nberubah = n - 3
-    grafis(nberubah, xberubah)
+    ylabel = 'Graphic Jika -x(n-3) With Custome'
+    grafis(nberubah, xberubah, ylabel)
 
 
 def nomorEnam():
@@ -233,9 +255,12 @@ def nomorEnam():
     x5 = minusnya * x[4]
     x6 = minusnya * x[5]
     xberubah = x1, x2, x3, x4, x5, x6
+    print('Hasil :x = ', xberubah)
+    print('       n = ', n)
     # xberubah = -x
     # nberubah = n - 3
-    grafis(n, xberubah)
+    ylabel = 'Graphic Jika -3x(n)'
+    grafis(n, xberubah, ylabel)
 
 def nomorEnamCustome(x,n):
     pyogclr.print_pass('            THIS A BENTUK -3x(n) : { with custome value }')
@@ -250,9 +275,12 @@ def nomorEnamCustome(x,n):
     x5 = minusnya * x[4]
     x6 = minusnya * x[5]
     xberubah = x1, x2, x3, x4, x5, x6
+    print('Hasil :x = ', xberubah)
+    print('       n = ', n)
     # xberubah = -x
     # nberubah = n - 3
-    grafis(n, xberubah)
+    ylabel = 'Graphic Jika -3x(n) With Custome'
+    grafis(n, xberubah, ylabel)
 
 
 def nomorTujuh():
@@ -274,9 +302,12 @@ def nomorTujuh():
     n5 = n[4] - (n[4]-3)
     n6 = n[5] - (n[5]-3)
     nberubah = n1, n2, n3, n4, n5, n6
+    print('Hasil :x = ', xberubah)
+    print('       n = ', nberubah)
     # xberubah = -x
     # nberubah = n - 3
-    grafis(nberubah, xberubah)
+    ylabel = 'Graphic Jika x(n)-x(n-3)'
+    grafis(nberubah, xberubah, ylabel)
 
 
 def nomorTujuhCustome(x,n):
@@ -298,17 +329,19 @@ def nomorTujuhCustome(x,n):
     n5 = n[4] - (n[4]-3)
     n6 = n[5] - (n[5]-3)
     nberubah = n1, n2, n3, n4, n5, n6
+    print('Hasil :x = ', xberubah)
+    print('       n = ', nberubah)
     # xberubah = -x
     # nberubah = n - 3
-    grafis(nberubah, xberubah)
+    ylabel = 'Graphic Jika x(n)-x(n-3) With Custome'
+    grafis(nberubah, xberubah, ylabel)
 
-
+# function not use
 # function that returns dy/dt
 def model(y, t):
     k = 0.3
     dydt = -k * y
     return dydt
-
 
 def differentialEquation():
     print('\n ')
@@ -370,11 +403,13 @@ def differentialEquationCustome(x, n):
 
     plt.show()
     yogiAskCustome(x, n)
-
+# end of function not use
 
 def bentukFxn():
     print('\n\n')
     pyogclr.print_pass('            THIS A BENTUK FUNGSI x(n) :')
+    print('\t\t\t x(n) = { d d m m y y }')
+    print('\t\t\t x(n) = {', x[0], x[1], x[2], x[3], x[4], x[5], '}')
     print('\n\t\t\t x(n) = { n | ', n[0],
           ' <= n <= ', n[5], ', n bil. bulat }')
     yogiAsk()
@@ -384,6 +419,8 @@ def bentukFxnCustome(x, n):
     print('\n\n')
     pyogclr.print_pass(
         '            THIS A BENTUK FUNGSI x(n) :  { with custome value } ')
+    print('\t\t\t x(n) = { d d m m y y }')
+    print('\t\t\t x(n) = {', x[0], x[1], x[2], x[3], x[4], x[5], '}')
     print('\n\t\t\t x(n) = { n | ', n[0],
           ' <= n <= ', n[5], ', n bil. bulat }')
     yogiAskCustome(x, n)
@@ -395,6 +432,10 @@ def tabularForm():
     print('\t\t WHERE ')
     print('\t\t\t x(n) = { d d m m y y }')
     print('\t\t\t x(n) = {', x[0], x[1], x[2], x[3], x[4], x[5], '}')
+    t = PrettyTable(['data', 'value1','value2','value3','value4','value5','value6'])
+    t.add_row(['x', x[0], x[1], x[2], x[3], x[4], x[5], ])
+    t.add_row(['n', n[0], n[1], n[2], n[3], n[4], n[5], ])
+    print (t)
     yogiAsk()
 
 
@@ -408,10 +449,14 @@ def tabularFormCustome(x, n):
     print('\t\t WHERE ')
     print('\t\t\t x(n) = { d d m m y y }')
     print('\t\t\t x(n) = {', x[0], x[1], x[2], x[3], x[4], x[5], '}')
+    t = PrettyTable(['data', 'value1','value2','value3','value4','value5','value6'])
+    t.add_row(['x', x[0], x[1], x[2], x[3], x[4], x[5], ])
+    t.add_row(['n', n[0], n[1], n[2], n[3], n[4], n[5],])
+    print(t)
     yogiAskCustome(x, n)
 
 
-def grafis(n, x):
+def grafis(n, x,ylabel):
     # markerline, stemlines, baseline = plt.stem(x, np.cos(x), '-.')
     markerline, stemlines, baseline = plt.stem(n, x, '-.')
     # setting property of baseline with color red and linewidth 2
@@ -428,7 +473,7 @@ def grafis(n, x):
 
     plt.title(xnh)
     plt.grid(True)
-    plt.ylabel('Grafis Discrete Signal')
+    plt.ylabel(ylabel)
     plt.xlabel(label)
     # plt.yscale('linear')
     plt.show()
@@ -438,14 +483,49 @@ def yoGrafis():
     pyogclr.print_pass('opening figure grafis 1c . . .')
     print('From : x = ', x)
     print('       n = ', n)
-    grafis(n, x)
+    ylabel = 'Grafis Discrete'
+    grafis(n, x, ylabel)
 
 
 def yoGrafisCustome(x, n):
     pyogclr.print_pass('opening figure grafis 1c . . .{ with custome mode }')
     print('From : x = ', x)
     print('       n = ', n)
-    grafis(n, x)
+    ylabel = 'Grafis Discrete With Custome'
+    grafis(n, x, ylabel)
+
+
+def yoGrafisBedaCustome(x,n):
+    pyogclr.print_pass('opening figure grafis beda . . .')
+    print('From : x = ', x)
+    print('       n = ', n)
+    n1 = -n[0]
+    n2 = -n[1]
+    n3 = -n[2]
+    n4 = -n[3]
+    n5 = -n[4]
+    n6 = -n[5]
+    nberubah = n1, n2, n3, n4, n5, n6
+    print('hasil :x = ', x)
+    print('       n = ', nberubah)
+    ylabel = 'Persamaan Beda With Custome'
+    grafis(nberubah, x, ylabel)
+
+def yoGrafisBeda():
+    pyogclr.print_pass('opening figure grafis beda . . .')
+    print('From : x = ', x)
+    print('       n = ', n)
+    n1 = -n[0]
+    n2 = -n[1]
+    n3 = -n[2]
+    n4 = -n[3]
+    n5 = -n[4]
+    n6 = -n[5]
+    nberubah = n1,n2,n3,n4,n5,n6
+    print('hasil :x = ', x)
+    print('       n = ', nberubah)
+    ylabel = 'Persamaan Beda'
+    grafis(nberubah, x, ylabel)
 
 
 def yogiAsk():
@@ -554,8 +634,11 @@ def yoTransz():
     pyogclr.print_pass('Z transform doesnt support in python')
     pyogclr.print_pass('so i write that in matlab only , this link')
     pyogclr.print_pass('could you download the file ztransform.m')
+    print("x1(n) = { ", x, " }")
+    pyogclr.print_bold('JAWAB______')
+    pyogclr.print_fail('x1(z)= 1 + 5z^-1 + 3z^-2 + 9z^4 + z^-5 ROC: Z tidak sama dengan 0')
     hr_yogi()
-    print('download here [matlab]')
+    print('download here [matlab] visualisasi')
     pyogclr.print_warn(
         'https://github.com/yogithesymbian/python-matlab-data-signal/blob/master/ztransform.m')
     hr_yogi()
@@ -571,6 +654,21 @@ def yoTransz():
           'raise NotImplementedError("z-transform not supported")\n'
           )
     pyogclr.print_bold('still development choose other menu')
+    print('% % Z transform',
+          'clc'
+          'close all % close all',
+          'clear all % clear all variable',
+          'x=[1 5 0 3 9 9]',
+          'b=0',
+
+          '% calculating length of an birth of date',
+          'n=length(x)',
+          'y=sym(z)',
+          'for i=1: n',
+          'b=b+x(i)*y ^ (1-i)',
+          'end',
+          'display(b)',
+          '% reference at https: // youtu.be/lpBhat9mVho')
 
 
 def ioGrafis():
@@ -621,7 +719,10 @@ def customizeValue(x, n):
     elif ioMenu == '4':
         yogiClear()
         banner()
-        differentialEquationCustome(x, n)
+        # yoGrafisBeda()
+        yoGrafisBedaCustome(x, n)
+        yogiAskCustome(x, n)
+        # differentialEquationCustome(x, n)
     elif ioMenu == '5':
         yogiClear()
         banner()
