@@ -1,3 +1,6 @@
+% yogi arif widodo
+% 17 615 006
+% x(n) =  { 1 5 0 3 9 9}
 % konvolusi dari y(n)
 n=0:5;
 x=1.5.^n;

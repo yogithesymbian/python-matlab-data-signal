@@ -1,3 +1,6 @@
+% yogi arif widodo
+% 17 615 006
+% x(n) =  { 1 5 0 3 9 9}
 function [ X ] = ftransform(f,L1,L2 )
 
 %   Detailed explanation goes here
@@ -15,7 +18,7 @@ X= int(f*exp(-j*w*t),t,L1,L2);
 disp(' X(jw)'),pretty(X)
 
 w=-20:.01:20;
-inline(X);  
+inline(X);
 ans(-20:.01:20);
 
 subplot(2,1,1);
@@ -27,7 +30,6 @@ grid on;
 subplot(2,1,2)
 plot(w,imag(ans),'r','linewidth',2.5);
 title('< X(jw) Angle')
-grid on 
+grid on
 
  end
-

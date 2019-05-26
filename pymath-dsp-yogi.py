@@ -636,7 +636,7 @@ def yoTransz():
     pyogclr.print_pass('could you download the file ztransform.m')
     print("x1(n) = { ", x, " }")
     pyogclr.print_bold('JAWAB______')
-    pyogclr.print_fail('x1(z)= 1 + 5z^-1 + 3z^-2 + 9z^4 + z^-5 ROC: Z tidak sama dengan 0')
+    pyogclr.print_fail('x1(z)= 1 + 5z^-1 + 3z^-3 + 9z^4 + 9^-5 ROC: Z tidak sama dengan 0')
     hr_yogi()
     print('download here [matlab] visualisasi')
     pyogclr.print_warn(

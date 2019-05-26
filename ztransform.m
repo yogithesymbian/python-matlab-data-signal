@@ -1,9 +1,13 @@
+% yogi arif widodo
+% 17 615 006
+% x(n) =  { 1 5 0 3 9 9}
 %% Z transform
 clc
 close all % close all
 clear all % clear all variable
 x = [ 1 5 0 3 9 9 ];
 b = 0;
+
 % calculating length of an birth of date
 n = length(x);
 y = sym('z');
